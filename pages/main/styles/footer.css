@@ -1,0 +1,6 @@
+.footer {
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  padding: 30px 10px 0;
+}

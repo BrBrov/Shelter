@@ -1,7 +1,6 @@
 @import url('../../assets/styles/defaults.css');
 @import url('../../assets/styles/fonts.css');
 @import url('../../assets/styles/variables.css');
-
-.page {
-  width: 100%;
-}
+@import url('./styles/header.css');
+@import url('./styles/main.css');
+@import url('./styles/footer.css');

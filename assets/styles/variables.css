@@ -13,6 +13,8 @@
 	--color-primary-light: #fddcc4;
 	--start-screen-gradient-background: #211f20;
 	--footer-gradient-background: #211f20;
+	--header-btn-menu-color: var(--color-primary);
+
 	/*text variables*/
 	/*Text sizes*/
 	--text-size-xl: 44px;
@@ -22,12 +24,19 @@
 	--text-size-ms: 12px;
 
 	/*Text line height*/
-	--text-line-height-x: 160%;
-	--text-line-height-x: 150%;
-	--text-line-height-x: 130%;
-	--text-line-height-x: 115%;
-	--text-line-height-x: 110%;
+	--text-line-height-xl: 160%;
+	--text-line-height-xm: 150%;
+	--text-line-height-m: 130%;
+	--text-line-height-ms: 115%;
+	--text-line-height-s: 110%;
 
 	/*Text letter spacing*/
 	--text-letter-spacing: 0.06em;
+
+	/*Fonts*/
+	--georgia-regular: "Georgia Regular", sans-serif;
+	--georgia-italic: "Georgia Italic", sans-serif;
+	--arial-regular: "Arial Regular", sans-serif;
+	--arial-italic: "Georgia Italic", sans-serif;
+	--inter-regular: "Inter Regular", sans-serif;
 }
