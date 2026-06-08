@@ -1,0 +1,7 @@
+@import url('../../assets/styles/defaults.css');
+@import url('../../assets/styles/fonts.css');
+@import url('../../assets/styles/variables.css');
+
+.page {
+  width: 100%;
+}
