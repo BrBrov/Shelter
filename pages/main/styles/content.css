@@ -1,0 +1,50 @@
+
+.main__content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 42px;
+}
+
+.main__content-image {
+  width: 87%;
+  min-height: 0;
+  flex-shrink: 1;
+  align-self: flex-end;
+}
+
+.main__content-title {
+  width: 200px;
+  text-align: center;
+  font-family: var(--georgia-regular);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.5px;
+  color: var(--color-light-xl);
+}
+
+.main__content-text {
+  width: 300px;
+  text-align: center;
+  font-family: var(--arial-regular);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--color-dark-s);
+}
+
+.main__content-button {
+  padding: 15px 45px;
+  border-radius: 100px;
+  background: var(--color-primary);
+  color: var(--color-dark-3xl);
+  font-family: var(--georgia-regular);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1px;
+}

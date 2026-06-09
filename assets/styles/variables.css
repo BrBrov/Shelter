@@ -15,9 +15,6 @@
 	--footer-gradient-background: #211f20;
 	--header-btn-menu-color: var(--color-primary);
 
-	/*Text letter spacing*/
-	--text-letter-spacing: 0.06em;
-
 	/*Fonts*/
 	--georgia-regular: "Georgia Regular", sans-serif;
 	--georgia-italic: "Georgia Italic", sans-serif;
