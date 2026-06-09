@@ -1,0 +1,44 @@
+@import url('./card.css');
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 507px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.carousel__container {
+  width: 270px;
+  font-size: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.carousel__btn-next,
+.carousel__btn-prev {
+  position: absolute;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 2px solid var(--color-primary);
+}
+
+.carousel__btn-next .carousel-arrow {
+  transform: rotate(180deg);
+}
+
+.carousel__btn-prev {
+  left: 43px;
+  bottom: 0;
+}
+
+.carousel__btn-next {
+  right: 43px;
+  bottom: 0;
+}
