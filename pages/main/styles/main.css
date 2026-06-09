@@ -1,23 +1,9 @@
 @import url('./content.css');
+@import url('./about.css');
 
 .main {
   position: relative;
   z-index: 0;
   width: clamp(320px, 100%, 1280px);
   margin-top: -90px;
-}
-
-.main__content {
-  display: flex;
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  height: 823px;
-  padding: 150px 10px 0;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 105px;
-  background: url('../../../assets/images/noise.jpg') 0% 0% / 110px 110px repeat,
-    radial-gradient(70% 160% at 0% 0%, #5B483A 0%, #262425 100%);
-  background-blend-mode: overlay;
 }
