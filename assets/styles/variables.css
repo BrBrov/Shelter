@@ -15,21 +15,6 @@
 	--footer-gradient-background: #211f20;
 	--header-btn-menu-color: var(--color-primary);
 
-	/*text variables*/
-	/*Text sizes*/
-	--text-size-xl: 44px;
-	--text-size-xm: 35px;
-	--text-size-xs: 20px;
-	--text-size-m: 15px;
-	--text-size-ms: 12px;
-
-	/*Text line height*/
-	--text-line-height-xl: 160%;
-	--text-line-height-xm: 150%;
-	--text-line-height-m: 130%;
-	--text-line-height-ms: 115%;
-	--text-line-height-s: 110%;
-
 	/*Text letter spacing*/
 	--text-letter-spacing: 0.06em;
 
