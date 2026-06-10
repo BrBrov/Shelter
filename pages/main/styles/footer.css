@@ -1,15 +1,21 @@
 .footer {
   display: flex;
+  justify-content: center;
+  background: url('../../../assets/images/noise.jpg') 0% 0% / 110px 110px repeat,
+    radial-gradient(70% 160% at 0% 0%, #5B483A 0%, #262425 100%);
+  background-blend-mode: overlay;
+}
+
+.footer__limiter {
+  display: flex;
   position: relative;
   z-index: 0;
   box-sizing: border-box;
+  max-width: 1280px;
   padding: 30px 10px 0;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background: url('../../../assets/images/noise.jpg') 0% 0% / 110px 110px repeat,
-    radial-gradient(70% 160% at 0% 0%, #5B483A 0%, #262425 100%);
-  background-blend-mode: overlay;
 }
 
 .footer__top,
