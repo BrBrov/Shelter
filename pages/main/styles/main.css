@@ -2,6 +2,7 @@
 @import url('./about.css');
 @import url('./pets.css');
 @import url('./help.css');
+@import url('./donation.css');
 
 .main {
   position: relative;

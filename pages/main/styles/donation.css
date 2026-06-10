@@ -1,0 +1,73 @@
+.main__donation {
+  display: flex;
+  box-sizing: border-box;
+  padding: 42px 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 42px;
+}
+
+.main__donation-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.main__donation-title {
+  width: 210px;
+  text-align: center;
+  font-family: var(--georgia-regular);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.5px;
+  color: var(--color-dark-l);
+}
+
+.main__donation-info {
+  font-family: var(--georgia-regular);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--color-dark-l, #545454);
+}
+
+.main__donation-button {
+  display: flex;
+  width: 281px;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 9px;
+  background: var(--color-primary);
+}
+
+.main__donation-icon {
+  width: 30px;
+  height: 23px;
+}
+
+.main__donation-label {
+  font-family: var(--georgia-regular);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: 0.9px;
+  color: var(--color-dark-l);
+}
+
+.main__donation-description {
+  width: 280px;
+  text-align: justify;
+  font-family: var(--arial-italic);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-dark-m, #B2B2B2);
+}
