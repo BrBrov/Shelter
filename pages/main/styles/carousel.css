@@ -7,6 +7,14 @@
   height: 507px;
   justify-content: flex-start;
   align-items: center;
+
+  @media (min-width: 768px) {
+    height: 435px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
 }
 
 .carousel__container {
@@ -14,6 +22,10 @@
   font-size: 40px;
   white-space: nowrap;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    width: 540px;
+  }
 }
 
 .carousel__btn-next,
@@ -27,6 +39,10 @@
   align-items: center;
   border-radius: 100px;
   border: 2px solid var(--color-primary);
+
+  @media (min-width: 768px) {
+    position: relative;
+  }
 }
 
 .carousel__btn-next .carousel-arrow {
@@ -36,9 +52,19 @@
 .carousel__btn-prev {
   left: 43px;
   bottom: 0;
+
+  @media (min-width: 768px) {
+    left: auto;
+    bottom: auto;
+  }
 }
 
 .carousel__btn-next {
   right: 43px;
   bottom: 0;
+
+  @media (min-width: 768px) {
+    right: auto;
+    bottom: auto;
+  }
 }

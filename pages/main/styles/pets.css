@@ -9,6 +9,10 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
+
+  @media (min-width: 768px) {
+    padding: 80px 30px 100px;
+  }
 }
 
 .main__pets-title {
@@ -21,6 +25,13 @@
   line-height: 130%;
   letter-spacing: 1.5px;
   color: var(--color-dark-xl);
+
+  @media (min-width: 768px) {
+    width: 350px;
+    font-size: 35px;
+    font-style: normal;
+    letter-spacing: 2.1px;
+  }
 }
 
 .main__pets-carousel {
