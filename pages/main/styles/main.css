@@ -1,6 +1,7 @@
 @import url('./content.css');
 @import url('./about.css');
 @import url('./pets.css');
+@import url('./help.css');
 
 .main {
   position: relative;
