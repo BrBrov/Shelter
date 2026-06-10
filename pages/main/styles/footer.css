@@ -1,6 +1,75 @@
 .footer {
+  display: flex;
   position: relative;
   z-index: 0;
   box-sizing: border-box;
   padding: 30px 10px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: url('../../../assets/images/noise.jpg') 0% 0% / 110px 110px repeat,
+    radial-gradient(70% 160% at 0% 0%, #5B483A 0%, #262425 100%);
+  background-blend-mode: overlay;
+}
+
+.footer__top,
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer__top {
+  align-items: center;
+}
+
+.footer__bottom {
+  align-items: flex-start;
+}
+
+.footer__top-title,
+.footer__bottom-title {
+  width: 278px;
+  text-align: center;
+  font-family: var(--georgia-regular);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.5px;
+  color: var(--color-light-xl, #FFF);
+}
+
+.footer__top-wrapper,
+.footer__bottom-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__top-link,
+.footer__bottom-link {
+  font-family: var(--georgia-regular);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%;
+  letter-spacing: 1.2px;
+  color: var(--color-primary);
+}
+
+.footer__top-icon {
+  width: 40px;
+  height: 32px;
+}
+
+.footer__bottom-icon {
+  width: 22px;
+  height: 32px;
+}
+
+.footer__image {
+  width: 260px;
+  min-height: 0;
+  flex-shrink: 1;
 }

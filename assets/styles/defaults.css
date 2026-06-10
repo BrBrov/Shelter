@@ -24,3 +24,8 @@ ul, li {
   padding: 0;
   list-style-type: none;
 }
+
+a {
+  color: unset;
+  text-decoration: none;
+}
