@@ -19,12 +19,12 @@
 
 .carousel__container {
   width: 270px;
-  font-size: 40px;
+  font-size: 150px;
   white-space: nowrap;
   overflow: hidden;
 
   @media (min-width: 768px) {
-    width: 540px;
+    width: 578px;
   }
 }
 

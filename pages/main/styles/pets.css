@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
+  background: var(--color-light-l);
 
   @media (min-width: 768px) {
     padding: 80px 30px 100px;
