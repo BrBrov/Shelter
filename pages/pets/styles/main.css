@@ -1,3 +1,5 @@
+@import url('./carousel.css');
+
 .main {
   background: var(--color-light-l);
 }
@@ -19,6 +21,7 @@
 
   @media (min-width: 1280px) {
     padding: 80px 40px 100px;
+    gap: 60px;
   }
 }
 
