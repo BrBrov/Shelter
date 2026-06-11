@@ -1,0 +1,36 @@
+@import url('../../../pages/main/styles/header.css');
+
+.header__limiter {
+  padding: 30px 20px;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 30px 40px;
+  }
+}
+
+.header__title,
+.header__navigation-link {
+  color: var(--color-dark-l);
+}
+
+.header__navigation-link {
+  &:hover {
+    color: var(--color-dark-3xl);
+  }
+
+  &:active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-primary);
+    color: var(--color-dark-l);
+  }
+}
+
+.header__title-description {
+  color: var(--color-dark-3xl);
+}

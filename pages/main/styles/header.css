@@ -88,22 +88,10 @@
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-primary);
     color: var(--color-light-s);
   }
 }
-
-/* .header__navigation-item:hover {
-  border-bottom: 3px solid var(--color-primary);
-}
-
-.header__navigation-item:hover .header__navigation-link {
-  font-family: var(--arial-regular);
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
-  color: var(--color-light-s);
-} */
 
 .header__btn-menu {
   width: 30px;
