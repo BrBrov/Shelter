@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.carousel__card:hover {
+  background: var(--color-light-xl);
+}
+
 .carousel__card-image {
   width: 100%;
 }
