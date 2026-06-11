@@ -1,0 +1,112 @@
+.main__content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: url('../../../assets/images/noise.jpg') 0% 0% / 110px 110px repeat,
+    radial-gradient(70% 160% at 0% 0%, #5B483A 0%, #262425 100%);
+  background-blend-mode: overlay;
+}
+
+.main__content-limiter {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  padding: 150px 10px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 105px;
+
+  @media (min-width: 768px) {
+    padding: 150px 100px 0;
+    gap: 100px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 180px 40px 0;
+    flex-direction: row;
+    gap: 42px;
+  }
+}
+
+
+.main__content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 42px;
+
+  @media (min-width: 1280px) {
+    margin-top: -60px;
+    justify-content: center;
+  }
+}
+
+.main__content-image {
+  width: 87%;
+  min-height: 0;
+  flex-shrink: 1;
+  align-self: flex-end;
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
+}
+
+.main__content-title {
+  width: 200px;
+  text-align: center;
+  font-family: var(--georgia-regular);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.5px;
+  color: var(--color-light-xl);
+
+  @media (min-width: 768px) {
+    width: 335px;
+    text-align: left;
+    align-self: flex-start;
+    font-size: 44px;
+  }
+}
+
+.main__content-text {
+  width: 300px;
+  text-align: center;
+  font-family: var(--arial-regular);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--color-dark-s);
+
+  @media (min-width: 768px) {
+    width: 460px;
+    text-align: left;
+    align-self: flex-start;
+  }
+}
+
+.main__content-button {
+  width: 207px;
+  height: 52px;
+  border-radius: 100px;
+  font-family: var(--georgia-regular);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1px;
+  background: var(--color-primary);
+  color: var(--color-dark-3xl);
+
+  @media (min-width: 1280px) {
+    align-self: flex-start;
+  }
+
+  &:hover {
+    background: var(--color-primary-light);
+  }
+}

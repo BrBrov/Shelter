@@ -1,0 +1,14 @@
+@import url('./content.css');
+@import url('./about.css');
+@import url('./pets.css');
+@import url('./help.css');
+@import url('./donation.css');
+
+.main {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: -90px;
+  align-items: center;
+}
