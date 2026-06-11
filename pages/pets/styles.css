@@ -3,4 +3,5 @@
 @import url('../../assets/styles/variables.css');
 @import url('./styles/header.css');
 @import url('../../pages/main/styles/footer.css');
+@import url('./styles/main.css');
 
