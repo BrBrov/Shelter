@@ -33,3 +33,47 @@
   letter-spacing: 1.5px;
   color: var(--color-dark-l);
 }
+
+.main__contorllers {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.main__contorllers-button {
+  display: flex;
+  box-sizing: border-box;
+  width: 52px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100px;
+  text-align: center;
+  font-family: var(--georgia-regular);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+
+.main__contorllers-button_active {
+ border: 2px solid var(--color-primary);
+ color: var(--color-dark-3xl);
+}
+
+.main__contorllers-button_disabled {
+  border: 2px solid var(--color-dark-s);
+  color: var(--color-dark-s);
+}
+
+.main__contorllers-button_counter {
+ background: var(--color-primary);
+ color: var(--color-dark-3xl);
+}
