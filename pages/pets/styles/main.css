@@ -64,8 +64,12 @@
 }
 
 .main__contorllers-button_active {
- border: 2px solid var(--color-primary);
- color: var(--color-dark-3xl);
+  border: 2px solid var(--color-primary);
+  color: var(--color-dark-3xl);
+
+  &:hover {
+    background-color: var(--color-primary);
+  }
 }
 
 .main__contorllers-button_disabled {
@@ -74,6 +78,6 @@
 }
 
 .main__contorllers-button_counter {
- background: var(--color-primary);
- color: var(--color-dark-3xl);
+  background: var(--color-primary);
+  color: var(--color-dark-3xl);
 }
