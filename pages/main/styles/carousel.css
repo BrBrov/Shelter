@@ -49,6 +49,11 @@
   border-radius: 100px;
   border: 2px solid var(--color-primary);
 
+  &:hover {
+    border: none;
+    background: var(--color-primary-light);
+  }
+
   @media (min-width: 768px) {
     position: relative;
   }

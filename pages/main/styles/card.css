@@ -7,7 +7,8 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
-   background: var(--color-light-s);
+  background: var(--color-light-s);
+  cursor: pointer;
 }
 
 .carousel__card-image {
@@ -39,6 +40,11 @@
   line-height: 130%;
   letter-spacing: 1.02px;
   color: var(--color-dark-3xl);
+
+  &:hover {
+    border: none;
+    background: var(--color-primary-light);
+  }
 }
 
 /*Mock styles for mark up*/

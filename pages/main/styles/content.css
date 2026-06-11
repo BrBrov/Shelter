@@ -105,4 +105,8 @@
   @media (min-width: 1280px) {
     align-self: flex-start;
   }
+
+  &:hover {
+    background: var(--color-primary-light);
+  }
 }

@@ -30,7 +30,7 @@
     align-items: baseline;
   }
 
-    @media (min-width:1280px) {
+  @media (min-width:1280px) {
     order: 2;
   }
 }
@@ -79,6 +79,10 @@
   gap: 15px;
   border-radius: 9px;
   background: var(--color-primary);
+
+  &:hover {
+    background: var(--color-primary-light);
+  }
 
   @media (min-width:768px) {
     width: 349px;
