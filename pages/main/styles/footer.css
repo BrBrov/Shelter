@@ -63,6 +63,7 @@
 }
 
 .footer__bottom {
+  width: 295px;
   align-items: flex-start;
 
   @media (min-width: 768px) {
