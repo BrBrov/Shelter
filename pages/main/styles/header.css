@@ -1,13 +1,15 @@
+@import url('./burger.css');
+
 .header {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .header__limiter {
-  position: relative;
   display: flex;
   max-width: 1280px;
   box-sizing: border-box;
@@ -51,16 +53,8 @@
   letter-spacing: 1.3px;
 }
 
-.header__navigation {
-  width: 65%;
-  max-width: 443px;
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-}
-
 .header__navigation-bar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,19 +80,32 @@
 
   &:active {
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 10px;
     text-decoration-thickness: 3px;
     text-decoration-color: var(--color-primary);
     color: var(--color-light-s);
   }
+
+  @media (max-width: 767px) {
+    color: var(--color-light-s);
+    font-size: 32px;
+  }
 }
 
 .header__btn-menu {
+  position: relative;
+  z-index: 2;
   width: 30px;
   height: 22px;
   background: url('../../../assets/icons/button-menu.svg') center / cover no-repeat;
+  transform: rotate(0);
+  transition: transform 0.3s linear;
 
   @media (min-width: 768px) {
     display: none;
   }
+}
+
+.header__btn-menu_open {
+  transform: rotate(90deg);
 }

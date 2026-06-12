@@ -24,10 +24,27 @@
 
   &:active {
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 10px;
     text-decoration-thickness: 3px;
     text-decoration-color: var(--color-primary);
     color: var(--color-dark-l);
+  }
+
+  @media (max-width: 767px) {
+    color: var(--color-light-s);
+    font-size: 32px;
+
+    &:hover {
+      color: var(--color-light-s);
+    }
+
+    &:active {
+      text-decoration: underline;
+      text-underline-offset: 10px;
+      text-decoration-thickness: 3px;
+      text-decoration-color: var(--color-primary);
+      color: var(--color-light-s);
+    }
   }
 }
 
