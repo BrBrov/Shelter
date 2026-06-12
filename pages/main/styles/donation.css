@@ -1,5 +1,12 @@
 .main__donation {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  background: var(--color-light-l);
+}
+
+.main__donation-limiter {
+  display: flex;
   box-sizing: border-box;
   width: 100%;
   max-width: 1280px;
@@ -7,7 +14,6 @@
   flex-direction: column;
   align-items: center;
   gap: 42px;
-  background: var(--color-light-l);
 
   @media (min-width:768px) {
     padding: 80px 131px 100px;
