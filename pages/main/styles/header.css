@@ -78,9 +78,10 @@
     color: var(--color-light-s);
   }
 
-  &:active {
+  &:active,
+  &.header__navigation-link-marked {
     text-decoration: underline;
-    text-underline-offset: 10px;
+    text-underline-offset: 6px;
     text-decoration-thickness: 3px;
     text-decoration-color: var(--color-primary);
     color: var(--color-light-s);
