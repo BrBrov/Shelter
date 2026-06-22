@@ -4,11 +4,23 @@
   width: 270px;
   height: 435px;
   padding-bottom: 30px;
+  margin: 0;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   background: var(--color-light-s);
   cursor: pointer;
+  transform: translate(-270px);
+
+  @media (min-width: 768px) {
+    margin: 0 20px;
+      transform: translate(-335px);
+  }
+
+  @media (min-width: 1280px) {
+    margin: 0 45px;
+    transform: translate(-405px);
+  }
 }
 
 .carousel__card:hover {

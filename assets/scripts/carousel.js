@@ -1,9 +1,10 @@
+import CardElement from './cardElement.js';
 import shuffleData from './shuffleData.js';
 
 class CarouselData {
   constructor(cardsData) {
     this.cardsData = cardsData;
-    this.currentCardsIDs = [0, 1, 2];
+    this.currentCardsIDs = [];
   }
 }
 
@@ -12,11 +13,11 @@ class CarouselController extends CarouselData {
     super(cardsData);
   }
 
-  getCurrentCards() {
+  getCurrentCardsIDs() {
     return this.cardsData.filter((card) => this.currentCardsIDs.includes(card.id));
   }
 
-  generateNewCards() {
+  generateNewCardsIDs() {
     let clearCards = this.cardsData.filter((card) => {
       return !this.currentCardsIDs.includes(card.id);
     });
@@ -37,13 +38,13 @@ class CarouselHandler extends CarouselController {
   }
 
   rotateNext(carouselElements, idCard) {
-    const newCardsElem = this.getCurrentCards();
+    const newCardsElem = this.getCurrentCardsIDs();
     carouselElements[carouselElements.legth - 1].after(newCardsElem[idCard].cloneNode(true));
     carouselElements[0].remove();
   }
 
   rotatePrev(carouselElements, idCard) {
-    const newCardsElem = this.getCurrentCards();
+    const newCardsElem = this.getCurrentCardsIDs();
     console.dir(newCardsElem);
     carouselElements[0].prepend(newCardsElem[idCard].cloneNode(true));
     carouselElements[carouselElements.length - 1]
@@ -67,13 +68,15 @@ class Carousel extends CarouselHandler {
     super(cardsData);
     this.prevBtn = document.querySelector('.carousel__btn-prev');
     this.nextBtn = document.querySelector('.carousel__btn-next');
-    this.cardsElems = document.getElementsByClassName('carousel__card');
+    this.cardsContainer = document.getElementsByClassName('carousel__container')[0];
     this.timer = null;
     this.ticks = 0;
   }
 
   init() {
-    this.generateNewCards();
+    const cardsElems = this.cardsData.map(cardData => new CardElement(cardData));
+    cardsElems.push(new CardElement(this.cardsData[0]));
+    cardsElems.forEach(card => this.cardsContainer.appendChild(card.content));
     this.prevBtn.addEventListener('click', this.prevHandler.bind(this));
   }
 
@@ -83,15 +86,15 @@ class Carousel extends CarouselHandler {
 
   prevHandler() {
     if (this.checkRotate()) return;
-    this.checkRotate = true;
+    this.switchRotateState();
     this.timer = setInterval(() => {
       if (this.ticks < 3) {
         this.tickHandler(this.tick + 1);
-        this.rotatePrev(this.cardsElems, this.ticks);
+        this.rotatePrev(this.cardsContainer, this.ticks);
       } else {
         clearInterval(this.timer);
         this.tickHandler(0);
-        this.isRotate = false;
+        this.switchRotateState();
       }
     }, 500);
   }

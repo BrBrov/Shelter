@@ -23,7 +23,7 @@
 
 .carousel__container {
   width: 270px;
-  font-size: 150px;
+  font-size: 0;
   white-space: nowrap;
   overflow: hidden;
 
@@ -33,7 +33,6 @@
 
   @media (min-width: 1280px) {
     width: 990px;
-    font-size: 296px;
   }
 }
 
