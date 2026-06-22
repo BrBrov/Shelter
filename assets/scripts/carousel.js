@@ -1,4 +1,5 @@
 import CardElement from './cardElement.js';
+import CardsContainer from './cardsContainer.js';
 import shuffleData from './shuffleData.js';
 
 class CarouselData {
@@ -13,10 +14,6 @@ class CarouselController extends CarouselData {
     super(cardsData);
   }
 
-  getCurrentCardsIDs() {
-    return this.cardsData.filter((card) => this.currentCardsIDs.includes(card.id));
-  }
-
   generateNewCardsIDs() {
     let clearCards = this.cardsData.filter((card) => {
       return !this.currentCardsIDs.includes(card.id);
@@ -28,6 +25,9 @@ class CarouselController extends CarouselData {
     this.currentCardsIDs = clearCards.map(function (card) {
       return card.id;
     });
+
+
+    return clearCards.map(dataCard => new CardElement(dataCard));
   }
 }
 
@@ -37,17 +37,12 @@ class CarouselHandler extends CarouselController {
     this.isRotate = false;
   }
 
-  rotateNext(carouselElements, idCard) {
-    const newCardsElem = this.getCurrentCardsIDs();
-    carouselElements[carouselElements.legth - 1].after(newCardsElem[idCard].cloneNode(true));
-    carouselElements[0].remove();
+  rotateNext(container) {
+    console.dir(container);
   }
 
-  rotatePrev(carouselElements, idCard) {
-    const newCardsElem = this.getCurrentCardsIDs();
-    console.dir(newCardsElem);
-    carouselElements[0].prepend(newCardsElem[idCard].cloneNode(true));
-    carouselElements[carouselElements.length - 1]
+  rotatePrev(container) {
+    console.dir(container);
   }
 
   checkRotate() {
@@ -68,39 +63,48 @@ class Carousel extends CarouselHandler {
     super(cardsData);
     this.prevBtn = document.querySelector('.carousel__btn-prev');
     this.nextBtn = document.querySelector('.carousel__btn-next');
-    this.cardsContainer = document.getElementsByClassName('carousel__container')[0];
-    this.timer = null;
-    this.ticks = 0;
+    this.cardsContainer = this.setContainer();
   }
 
   init() {
     const cardsElems = this.cardsData.map(cardData => new CardElement(cardData));
     cardsElems.push(new CardElement(this.cardsData[0]));
-    cardsElems.forEach(card => this.cardsContainer.appendChild(card.content));
-    this.prevBtn.addEventListener('click', this.prevHandler.bind(this));
-  }
 
-  tickHandler(newTick) {
-    this.ticks = newTick;
+    this.cardsContainer = new CardsContainer(cardsElems, this.cardsContainer).container;
+    this.setCurrentIDs();
+    this.prevBtn.addEventListener('click', this.prevHandler.bind(this));
+    this.nextBtn.addEventListener('click', this.nextHandler.bind(this));
   }
 
   prevHandler() {
     if (this.checkRotate()) return;
     this.switchRotateState();
-    this.timer = setInterval(() => {
-      if (this.ticks < 3) {
-        this.tickHandler(this.tick + 1);
-        this.rotatePrev(this.cardsContainer, this.ticks);
-      } else {
-        clearInterval(this.timer);
-        this.tickHandler(0);
-        this.switchRotateState();
-      }
+    this.rotatePrev(this.cardsContainer);
+    this.cardsContainer = this.setContainer();
+    setTimeout(() => {
+      this.switchRotateState();
     }, 500);
   }
 
   nextHandler() {
-    if (this.checkRotate) return;
+    if (this.checkRotate()) return;
+    this.switchRotateState();
+    this.rotateNext(this.cardsContainer);
+    setTimeout(() => {
+      this.switchRotateState();
+      this.cardsContainer = this.setContainer();
+    }, 500);
+  }
+
+  setCurrentIDs() {
+    this.currentCardsIDs = [];
+    const viewSlide = this.cardsContainer.querySelectorAll('.carousel__slide')[1];
+    const cards = viewSlide.querySelectorAll('.carousel__card');
+    cards.forEach(card => this.currentCardsIDs.push(card.dataset.id));
+  }
+
+  setContainer() {
+    return document.getElementsByClassName('carousel__container')[0];
   }
 }
 

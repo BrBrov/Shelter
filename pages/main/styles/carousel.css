@@ -36,6 +36,25 @@
   }
 }
 
+.carousel__slide {
+  display: inline-flex;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  transition: all 0.5s linear;
+
+  @media (min-width: 768px) {
+    gap: 40px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 90px;
+  }
+}
+
+.carousel__slide:nth-child(1) {
+  margin-left: -100%;
+}
+
 .carousel__btn-next,
 .carousel__btn-prev {
   position: absolute;
