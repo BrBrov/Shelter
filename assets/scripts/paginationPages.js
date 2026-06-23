@@ -22,13 +22,12 @@ class BigPagePaginationCreate extends PaginationCardsCreator {
     this.pages.push(this.createCards(cardsData));
     let prevCardsData = cardsData;
 
-    while (this.pages.lenth < 6) {
-      const shuffledCards = shuffleData(cardsData);
-            console.log(this.pages);
+    while (this.pages.length < 6) {
+      const shuffledData = shuffleData(cardsData);
 
-      if (prevCardsData[0] !== shuffledData[0] && prevCardsData[3] !== shuffledData[3]) {
-        this.pages.push(this.createCards(shuffledCards));
-        prevCardsData = shuffledCards;
+      if (prevCardsData[0].id !== shuffledData[0].id && prevCardsData[3].id !== shuffledData[3].id) {
+        prevCardsData = shuffledData;
+        this.pages.push(this.createCards(prevCardsData));
       }
     }
   }
@@ -43,12 +42,13 @@ class MediumPagePaginationCreate extends PaginationCardsCreator {
 
   _createPages(cardData) {
     let prevCards = cardData.slice(0, 6);
+    console.dir(prevCards);
     this.pages.push(this.createCards(prevCards));
 
-    while (this.pages.lenth < 8) {
+    while (this.pages.length < 8) {
       const shuffledData = shuffleData(cardData).slice(0, 6);
 
-      if (prevCards[0] !== shuffledData[0] && prevCards[3] !== shuffledData[3] && prevCards[6] !== shuffledData[6]) {
+      if (prevCards[0].id !== shuffledData[0].id && prevCards[2].id !== shuffledData[2].id && prevCards[4].id !== shuffledData[4].id) {
         prevCards = shuffledData;
         this.pages.push(this.createCards(prevCards));
       }
@@ -68,10 +68,10 @@ class SmallPagePaginationCreate extends PaginationCardsCreator {
 
     this.pages.push(this.createCards(prevCards));
 
-    while (this.pages.lenth < 16) {
+    while (this.pages.length < 16) {
       const shuffledData = shuffleData(cardData).slice(0, 3);
 
-      if (prevCards[0] !== shuffledData[0] && prevCards[1] !== shuffledData[1] && prevCards[3] !== shuffledData[3]) {
+      if (prevCards[0].id !== shuffledData[0].id && prevCards[1].id !== shuffledData[1].id && prevCards[2].id !== shuffledData[2].id) {
         prevCards = shuffledData;
         this.pages.push(this.createCards(prevCards));
       }
