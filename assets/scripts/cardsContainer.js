@@ -4,6 +4,10 @@ class CardsContainer {
     this._createContainer(cards);
   }
 
+  getSlides() {
+    return this.container.children;
+  }
+
   _createContainer(cards) {
     let ctrlArr = [];
     const cardsSlides = cards.reduce((resultArr, card) => {

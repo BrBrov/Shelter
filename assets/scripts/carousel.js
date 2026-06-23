@@ -38,11 +38,20 @@ class CarouselHandler extends CarouselController {
   }
 
   rotateNext(container) {
-    console.dir(container);
+    const newCards = this.generateNewCardsIDs();
+    const newCardContainer = new CardsContainer(newCards, document.createElement('div'));
+    const containerOfCards = newCardContainer.getSlides()[0];
+    container.replaceChildren(containerOfCards.cloneNode(true), container.children[1], container.children[2]);
+    setTimeout(() => container.children[0].before(containerOfCards.cloneNode(true)), 1);
+    setTimeout(() => container.children[3].remove(), 501);
   }
 
   rotatePrev(container) {
-    console.dir(container);
+    const newCards = this.generateNewCardsIDs();
+    const newCardContainer = new CardsContainer(newCards, document.createElement('div'));
+    const containerOfCards = newCardContainer.getSlides()[0];
+    container.replaceChildren(container.children[0], container.children[1], containerOfCards.cloneNode(true), containerOfCards.cloneNode(true));
+    setTimeout(() => container.children[0].remove(), 10);
   }
 
   checkRotate() {
