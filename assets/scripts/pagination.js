@@ -131,26 +131,38 @@ class Pagination extends PaginationInit {
 
     if (position === 1) {
       this.btnToStart.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnToStart.disabled = true;
       this.btnPrevPage.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnPrevPage.disabled = true;
 
       this.btnToEnd.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnToEnd.disabled = false;
       this.btnNextPage.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnNextPage.disabled = false;
     }
 
     if (position === this.paginationView.pages.length) {
       this.btnToEnd.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnToEnd.disabled = true;
       this.btnNextPage.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnNextPage.disabled = true;
 
       this.btnToStart.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnToStart.disabled = false;
       this.btnPrevPage.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnPrevPage.disabled = false;
     }
 
     if (position > 1 && position < this.paginationView.pages.length) {
       this.btnToStart.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnToStart.disabled = false;
       this.btnPrevPage.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnPrevPage.disabled = false;
 
       this.btnToEnd.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnToEnd.disabled = false;
       this.btnNextPage.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnNextPage.disabled = false;
     }
   }
 
