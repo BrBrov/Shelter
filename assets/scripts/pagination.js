@@ -1,19 +1,22 @@
 import PaginationContainer from './paginationContainer.js';
 import PaginationView from './paginationPages.js';
 
-class PaginationHandler {
+class PaginationHandlerView {
   constructor(paginationView, container) {
     this.container = container;
     this.paginationView = paginationView;
+    this.isRotate = true;
     this._addResizeHandler();
   }
 
   _addResizeHandler() {
     window.addEventListener('resize', function () {
+      this._switchRotateState();
       this.paginationView.updateCurrentWidth();
       this.paginationView.setPaginationData();
       this._cleanPagination();
       this._buildPaginationSlides();
+      this._switchRotateState();
     }.bind(this));
   }
 
@@ -22,7 +25,6 @@ class PaginationHandler {
   }
 
   _buildPaginationSlides() {
-    // console.dir(this.paginationView.pages);
     const notVisibleSlide = new PaginationContainer(this.paginationView.pages.slice(0, 1)[0]);
 
     this.container.appendChild(notVisibleSlide.container.cloneNode(true));
@@ -32,28 +34,132 @@ class PaginationHandler {
 
     this.container.appendChild(notVisibleSlide.container.cloneNode(true));
   }
+
+  _switchRotateState() {
+    return this.isRotate = (this.isRotate) ? false : true;
+  }
 }
 
-class Pagination extends PaginationHandler {
+class PaginationInit extends PaginationHandlerView {
   constructor(cardsData) {
     super(new PaginationView(cardsData), document.querySelector('.carousel__container'));
-    const buttons = document.querySelectorAll('.main__contorllers-button');
-
-    this.btnToStart = buttons[0];
-    this.btnPrevPage = buttons[1];
-    this.btnIndicate = buttons[2];
-    this.btnNextPage = buttons[3];
-    this.btnToEnd = buttons[4];
-
     this._initPagination();
   }
 
   _initPagination() {
     this._buildPaginationSlides(this.container);
     this._addResizeHandler();
+    this._switchRotateState();
   }
 
+  _rotatePosition(position) {
+    const rule = Array.from(this.paginationView.position.cssRules).find(r => r.selectorText === '.carousel__pagination_position');
+    if (rule) {
+      rule.style.transform = `translate(-${position}%)`;
+    }
+  }
+}
 
+class Pagination extends PaginationInit {
+  constructor(cardsData) {
+    super(cardsData);
+
+    this.modificators = {
+      disactive: 'main__contorllers-button_disabled',
+      active: 'main__contorllers-button_active'
+    };
+
+    const position = -100;
+
+    const buttons = document.querySelectorAll('.main__contorllers-button');
+    console.dir(buttons);
+    this.btnToStart = buttons[0];
+    this.btnPrevPage = buttons[1];
+    this.btnIndicate = buttons[2];
+    this.btnNextPage = buttons[3];
+    this.btnToEnd = buttons[4];
+
+    this._addHandlersClick();
+  }
+
+  _rotatePrev() {
+    if (this.isRotate) return;
+    this._switchRotateState();
+    const currentPage = this.paginationView.getPrevPage();
+
+    const countTransform = currentPage * 100;
+
+    this._rotatePosition(countTransform);
+
+    setTimeout(() => this._updateBtnView(), 255);
+    setTimeout(() => this._switchRotateState(), 510);
+  }
+
+  _rotateNext() {
+    if (this.isRotate) return;
+    this._switchRotateState();
+    const currentPage = this.paginationView.getNextPage();
+
+    const countTransform = currentPage * 100;
+
+    this._rotatePosition(countTransform);
+    setTimeout(() => this._updateBtnView(), 255);
+    setTimeout(() => this._switchRotateState(), 510);
+  }
+
+  _rotateToFirstPage() {
+    if (this.isRotate) return;
+    this._switchRotateState();
+    const countTransform = this.paginationView.toFirstPage() * 100;
+    this._rotatePosition(countTransform);
+    setTimeout(() => this._updateBtnView(), 255);
+    setTimeout(() => this._switchRotateState(), 510);
+  }
+
+  _rotateToLastPage() {
+    if (this.isRotate) return;
+    this._switchRotateState();
+    const countTransform = this.paginationView.toLastPage() * 100;
+    this._rotatePosition(countTransform);
+    setTimeout(() => this._updateBtnView(), 255);
+    setTimeout(() => this._switchRotateState(), 510);
+  }
+
+  _updateBtnView() {
+    const position = this.paginationView.currentPage;
+    this.btnIndicate.textContent = position;
+
+    if (position === 1) {
+      this.btnToStart.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnPrevPage.classList.replace(this.modificators.active, this.modificators.disactive);
+
+      this.btnToEnd.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnNextPage.classList.replace(this.modificators.disactive, this.modificators.active);
+    }
+
+    if (position === this.paginationView.pages.length) {
+      this.btnToEnd.classList.replace(this.modificators.active, this.modificators.disactive);
+      this.btnNextPage.classList.replace(this.modificators.active, this.modificators.disactive);
+
+      this.btnToStart.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnPrevPage.classList.replace(this.modificators.disactive, this.modificators.active);
+    }
+
+    if (position > 1 && position < this.paginationView.pages.length) {
+      this.btnToStart.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnPrevPage.classList.replace(this.modificators.disactive, this.modificators.active);
+
+      this.btnToEnd.classList.replace(this.modificators.disactive, this.modificators.active);
+      this.btnNextPage.classList.replace(this.modificators.disactive, this.modificators.active);
+    }
+  }
+
+  _addHandlersClick() {
+    this.btnPrevPage.addEventListener('click', this._rotatePrev.bind(this));
+    this.btnNextPage.addEventListener('click', this._rotateNext.bind(this));
+    this.btnToStart.addEventListener('click', this._rotateToFirstPage.bind(this));
+    this.btnToEnd.addEventListener('click', this._rotateToLastPage.bind(this));
+  }
 }
 
 export default Pagination;

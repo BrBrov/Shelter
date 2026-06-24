@@ -80,8 +80,13 @@ class SmallPagePaginationCreate extends PaginationCardsCreator {
 
 class PaginationData {
   constructor() {
-    this.currentPage = 0;
+    this.currentPage = 1;
     this.pages = [];
+
+    this.position = new CSSStyleSheet();
+
+    this.position.replace(`.carousel__pagination_position {transform: translate(-100%)`);
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, this.position];
   }
 
   setPages(pages) {
@@ -91,23 +96,31 @@ class PaginationData {
   getNextPage() {
     this.currentPage += 1;
 
-    if (this.currentPage === this.pages.lenth) {
-      this.currentPage -= 1;
-      return null;
+    if (this.currentPage > this.pages.length) {
+      return this.currentPage -= 1;
     };
 
-    return this.pages[this.currentPage];
+    return this.currentPage;
   }
 
   getPrevPage() {
     this.currentPage -= 1;
 
-    if (this.currentPage < 0) {
-      this.currentPage = 0;
-      return null;
+    if (this.currentPage < 1) {
+      return this.currentPage = 1;
     }
 
-    return this.pages[this.currentPage];
+    return this.currentPage;
+  }
+
+  toFirstPage() {
+    this.currentPage = 1;
+    return this.currentPage;
+  }
+
+  toLastPage() {
+    this.currentPage = this.pages.length;
+    return this.currentPage;
   }
 }
 

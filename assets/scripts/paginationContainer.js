@@ -7,7 +7,7 @@ class PaginationContainer {
 
   _createContainer(page) {
     const container = document.createElement('div');
-    container.className = 'carousel__pagination';
+    container.className = 'carousel__pagination carousel__pagination_position';
 
     page.forEach(card => {
       container.appendChild(card.content)

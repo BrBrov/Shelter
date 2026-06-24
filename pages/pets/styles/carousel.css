@@ -29,7 +29,6 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  transform: translate(-100%);
   transition: transform 0.5s linear;
 
   @media (min-width: 768px) {
@@ -44,6 +43,10 @@
     width: 1200px;
   }
 }
+
+/* .carousel__pagination_position {
+  transform: translate(-100%);
+} */
 
 .carousel__card:nth-child(2),
 .carousel__card:nth-child(3) {
