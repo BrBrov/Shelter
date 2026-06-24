@@ -9,17 +9,6 @@ class PaginationHandlerView {
     this._addResizeHandler();
   }
 
-  _addResizeHandler() {
-    window.addEventListener('resize', function () {
-      this._switchRotateState();
-      this.paginationView.updateCurrentWidth();
-      this.paginationView.setPaginationData();
-      this._cleanPagination();
-      this._buildPaginationSlides();
-      this._switchRotateState();
-    }.bind(this));
-  }
-
   _cleanPagination() {
     [...this.container.children].forEach(slide => slide.remove());
   }
@@ -48,7 +37,6 @@ class PaginationInit extends PaginationHandlerView {
 
   _initPagination() {
     this._buildPaginationSlides(this.container);
-    this._addResizeHandler();
     this._switchRotateState();
   }
 
@@ -166,11 +154,24 @@ class Pagination extends PaginationInit {
     }
   }
 
+  _addResizeHandler() {
+    window.addEventListener('resize', function () {
+      this._rotateToFirstPage();
+      this._switchRotateState();
+      this.paginationView.updateCurrentWidth();
+      this.paginationView.setPaginationData();
+      this._cleanPagination();
+      this._buildPaginationSlides();
+      this._switchRotateState();
+    }.bind(this));
+  }
+
   _addHandlersClick() {
     this.btnPrevPage.addEventListener('click', this._rotatePrev.bind(this));
     this.btnNextPage.addEventListener('click', this._rotateNext.bind(this));
     this.btnToStart.addEventListener('click', this._rotateToFirstPage.bind(this));
     this.btnToEnd.addEventListener('click', this._rotateToLastPage.bind(this));
+    this._addResizeHandler();
   }
 }
 
