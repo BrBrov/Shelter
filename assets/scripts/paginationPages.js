@@ -42,7 +42,6 @@ class MediumPagePaginationCreate extends PaginationCardsCreator {
 
   _createPages(cardData) {
     let prevCards = cardData.slice(0, 6);
-    console.dir(prevCards);
     this.pages.push(this.createCards(prevCards));
 
     while (this.pages.length < 8) {
