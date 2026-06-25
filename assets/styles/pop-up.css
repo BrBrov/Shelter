@@ -17,6 +17,14 @@
   backdrop-filter: saturate(90%);
 }
 
+.popup__backdrop {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
 .popup__card {
   display: flex;
   flex-direction: column;

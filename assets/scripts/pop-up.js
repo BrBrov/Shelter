@@ -11,6 +11,11 @@ class Popup {
 
   _addHandler() {
     this.popover.addEventListener('beforetoggle', this._onOpenPopup.bind(this));
+    const backdrop = this.popover.querySelector('.popup__backdrop');
+    backdrop.addEventListener('click', this._onClosePopup.bind(this));
+
+    const cardContainer = this.popover.querySelector('.popup__card');
+    cardContainer.addEventListener('click', this._onClosePopup.bind(this));
   }
 
   _onOpenPopup({ target, newState }) {
@@ -29,6 +34,11 @@ class Popup {
       this.cardData = null;
     }
   }
-}
 
+  _onClosePopup({ target }) {
+    if (target.className === 'popup__backdrop' || target.className === 'popup__card') {
+      this.popover.hidePopover();
+    }
+  }
+}
 export default Popup;
