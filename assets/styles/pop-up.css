@@ -174,3 +174,9 @@
 .popup__item-title {
   font-weight: 600;
 }
+
+.popup__item-text {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
+}

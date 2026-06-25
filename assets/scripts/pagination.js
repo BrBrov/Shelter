@@ -1,5 +1,6 @@
 import PaginationContainer from './paginationContainer.js';
 import PaginationView from './paginationPages.js';
+import Popup from './pop-up.js';
 
 class PaginationHandlerView {
   constructor(paginationView, container) {
@@ -32,6 +33,7 @@ class PaginationHandlerView {
 class PaginationInit extends PaginationHandlerView {
   constructor(cardsData) {
     super(new PaginationView(cardsData), document.querySelector('.carousel__container'));
+    this.cardsData = cardsData;
     this._initPagination();
   }
 
@@ -58,9 +60,8 @@ class Pagination extends PaginationInit {
     };
 
     const position = -100;
-
+    this.popup = new Popup();
     const buttons = document.querySelectorAll('.main__contorllers-button');
-    console.dir(buttons);
     this.btnToStart = buttons[0];
     this.btnPrevPage = buttons[1];
     this.btnIndicate = buttons[2];
@@ -171,7 +172,25 @@ class Pagination extends PaginationInit {
     this.btnNextPage.addEventListener('click', this._rotateNext.bind(this));
     this.btnToStart.addEventListener('click', this._rotateToFirstPage.bind(this));
     this.btnToEnd.addEventListener('click', this._rotateToLastPage.bind(this));
+    this.container.addEventListener('click', this._containerClickHandler.bind(this));
     this._addResizeHandler();
+  }
+
+  _containerClickHandler({ target }) {
+    let card = target;
+    if (card.className !== 'carousel__card') {
+      card = target.parentElement;
+
+      if (card.className === 'carousel') {
+        const err = new Error('Cards was\'not loading!!!');
+        err.name = 'Failed loading resource!!!';
+        throw err;
+      }
+    }
+    const cardData = this.cardsData.find(cardObj => cardObj.id == card.dataset.id);
+    if (!cardData) return;
+    this.popup.setCardData(cardData);
+    this.popup.popover.showPopover();
   }
 }
 

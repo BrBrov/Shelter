@@ -85,7 +85,7 @@ class Carousel extends CarouselHandler {
     this.setCurrentIDs();
     this.prevBtn.addEventListener('click', this.prevHandler.bind(this));
     this.nextBtn.addEventListener('click', this.nextHandler.bind(this));
-    this.cardsContainer.addEventListener('click', this.containerClickHandler.bind(this));
+    this.cardsContainer.addEventListener('click', this._containerClickHandler.bind(this));
   }
 
   prevHandler() {
@@ -108,7 +108,7 @@ class Carousel extends CarouselHandler {
     }, 500);
   }
 
-  containerClickHandler({ target }) {
+  _containerClickHandler({ target }) {
     let card = target;
     if (card.className !== 'carousel__card') {
       card = target.parentElement;
