@@ -1,5 +1,6 @@
 import CardElement from './cardElement.js';
 import CardsContainer from './cardsContainer.js';
+import Popup from './pop-up.js';
 import shuffleData from './shuffleData.js';
 
 class CarouselData {
@@ -73,6 +74,7 @@ class Carousel extends CarouselHandler {
     this.prevBtn = document.querySelector('.carousel__btn-prev');
     this.nextBtn = document.querySelector('.carousel__btn-next');
     this.cardsContainer = this.setContainer();
+    this.popup = new Popup();
   }
 
   init() {
@@ -83,6 +85,7 @@ class Carousel extends CarouselHandler {
     this.setCurrentIDs();
     this.prevBtn.addEventListener('click', this.prevHandler.bind(this));
     this.nextBtn.addEventListener('click', this.nextHandler.bind(this));
+    this.cardsContainer.addEventListener('click', this.containerClickHandler.bind(this));
   }
 
   prevHandler() {
@@ -103,6 +106,23 @@ class Carousel extends CarouselHandler {
       this.switchRotateState();
       this.cardsContainer = this.setContainer();
     }, 500);
+  }
+
+  containerClickHandler({ target }) {
+    let card = target;
+    if (card.className !== 'carousel__card') {
+      card = target.parentElement;
+
+      if (card.className === 'carousel') {
+        const err = new Error('Cards was\'not loading!!!');
+        err.name = 'Failed loading resource!!!';
+        throw err;
+      }
+    }
+    const cardData = this.cardsData.find(cardObj => cardObj.id == card.dataset.id);
+    if(!cardData) return;
+    this.popup.setCardData(cardData);
+    this.popup.popover.showPopover();
   }
 
   setCurrentIDs() {

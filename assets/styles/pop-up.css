@@ -1,4 +1,4 @@
-.popup {
+.popup:popover-open {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,12 +86,12 @@
 
   @media (min-width: 768px) {
     width: 260px;
-    padding: 10px 9px 0 0;
+    padding: 10px 9px 10px 0;
   }
 
   @media (min-width: 1280px) {
     width: 351px;
-    padding: 50px 20px 0 0;
+    padding: 50px 20px 20px 0;
   }
 }
 
