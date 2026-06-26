@@ -22,7 +22,7 @@ class LoadingElement {
   _initCSSStylesLoading() {
     const lodingViewCSSStyles = new CSSStyleSheet();
 
-    lodingViewCSSStyles.insertRule('.cards__loading-container {display: flex; width: inherit; height: inherit; justify-content: center; align-items: center;}');
+    lodingViewCSSStyles.insertRule('.cards__loading-container {display: flex; width: inherit; height: inherit; margin: 0 auto; justify-content: center; align-items: center;}');
 
     const lodingViewCSSStylesText = new CSSStyleSheet();
 

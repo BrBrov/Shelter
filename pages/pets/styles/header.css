@@ -31,8 +31,14 @@
     color: var(--color-dark-l);
   }
 
+  &.header__navigation-link-marked {
+    @media (max-width: 767px) {
+      color: var(--color-light-s);
+    }
+  }
+
   @media (max-width: 767px) {
-    color: var(--color-light-s);
+    color: var(--color-dark-s);
     font-size: 32px;
 
     &:hover {
