@@ -23,7 +23,7 @@ class Popup {
       target.querySelector('.popup__title').textContent = this.cardData.name;
       target.querySelector('.popup__image').src = this.cardData.img;
       target.querySelector('.popup__image').alt = this.cardData.name;
-      target.querySelector('.popup__info').textContent = `${this.cardData.type} - ${this.cardData.bree}`;
+      target.querySelector('.popup__info').textContent = `${this.cardData.type} - ${this.cardData.breed}`;
       target.querySelector('.popup__description').textContent = this.cardData.description;
       const params = target.querySelectorAll('.popup__item-text');
       params[0].textContent = this.cardData.age;
