@@ -5,14 +5,19 @@ import shuffleData from '../../assets/scripts/shuffleData.js';
 import LoadingElement from '../../assets/scripts/loading-element.js';
 import Pagination from '../../assets/scripts/pagination.js';
 
-const loadingElement = new LoadingElement();
+function start() {
+  const loadingElement = new LoadingElement();
 
-document.querySelector('.carousel__container').appendChild(loadingElement.content);
+  document.querySelector('.carousel__container').appendChild(loadingElement.content);
 
-loadingElement.initAnimation();
-getData(loadingElement)
-  .then(data => cardsDataRebuilder(data))
-  .then(data => shuffleData(data))
-  .then(data => new Pagination(data))
+  loadingElement.initAnimation();
+  getData(loadingElement)
+    .then(data => cardsDataRebuilder(data))
+    .then(data => shuffleData(data))
+    .then(data => new Pagination(data))
+    .then(() => loadingElement.deleteElement());
 
-document.querySelector('.header__btn-menu').addEventListener('click', menuHandler);
+  document.querySelector('.header__btn-menu').addEventListener('click', menuHandler);
+}
+
+document.addEventListener('DOMContentLoaded', start);
