@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Inter Regular";
+  src: url('../fonts/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Georgia Regular";
+  src: url('../fonts/Georgia.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Arial Regular";
+  src: url('../fonts/ArialMT.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Georgia Italic";
+  src: url('../fonts/Georgia-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Arial Italic";
+  src: url('../fonts/Arial-ItalicMT.woff') format('woff');
+}

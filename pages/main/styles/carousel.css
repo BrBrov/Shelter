@@ -1,0 +1,102 @@
+@import url('./card.css');
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 507px;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    height: 435px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 53px;
+  }
+}
+
+.carousel__container {
+  width: 270px;
+  font-size: 0;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    width: 580px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 990px;
+  }
+}
+
+.carousel__slide {
+  display: inline-flex;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  transition: all 0.5s linear;
+
+  @media (min-width: 768px) {
+    gap: 40px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 90px;
+  }
+}
+
+.carousel__slide:nth-child(1) {
+  margin-left: -100%;
+}
+
+.carousel__btn-next,
+.carousel__btn-prev {
+  position: absolute;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 2px solid var(--color-primary);
+
+  &:hover {
+    border: none;
+    background: var(--color-primary-light);
+  }
+
+  @media (min-width: 768px) {
+    position: relative;
+  }
+}
+
+.carousel__btn-next .carousel-arrow {
+  transform: rotate(180deg);
+}
+
+.carousel__btn-prev {
+  left: 43px;
+  bottom: 0;
+
+  @media (min-width: 768px) {
+    left: auto;
+    bottom: auto;
+  }
+}
+
+.carousel__btn-next {
+  right: 43px;
+  bottom: 0;
+
+  @media (min-width: 768px) {
+    right: auto;
+    bottom: auto;
+  }
+}

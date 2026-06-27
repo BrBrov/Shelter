@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Pets</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="img/svg">
+  <script type="module" src="./script.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__limiter">
+      <a class="header__title-wrapper" href="../main/index.html">
+        <h1 class="header__title">Cozy House</h1>
+        <p class="header__title-description">Shelter for pets in Boston</p>
+      </a>
+      <nav class="header__navigation">
+        <ul class="header__navigation-bar">
+          <li class="header__navigation-item">
+            <a class="header__navigation-link" href="../main/index.html">About the shelter</a>
+          </li>
+          <li class="header__navigation-item">
+            <a class="header__navigation-link header__navigation-link-marked" href="#">Our pets</a>
+          </li>
+          <li class="header__navigation-item">
+            <a class="header__navigation-link" href="../main/index.html#main__help">Help the shelter</a>
+          </li>
+          <li class="header__navigation-item">
+            <a class="header__navigation-link" href="#footer__top">Contacts</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="header__btn-menu">
+      </button>
+    </div>
+  </header>
+  <main class="main">
+    <div class="main__limiter">
+      <h2 class="main__title">Our friends who<br>are looking for a house</h2>
+      <div class="main__carousel">
+        <div class="carousel">
+          <div class="carousel__container">
+          </div>
+        </div>
+      </div>
+      <div class="main__contorllers">
+        <button class="main__contorllers-button main__contorllers-button_disabled" disabled>&lt&lt</button>
+        <button class="main__contorllers-button main__contorllers-button_disabled" disabled>&lt</button>
+        <button class="main__contorllers-button main__contorllers-button_counter" disabled>1</button>
+        <button class="main__contorllers-button main__contorllers-button_active">&gt</button>
+        <button class="main__contorllers-button main__contorllers-button_active">&gt&gt</button>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__limiter">
+      <div class="footer__top" id="footer__top">
+        <h2 class="footer__top-title">For questions and suggestions</h2>
+        <div class="footer__top-wrapper">
+          <img class="footer__top-icon" src="../../assets/icons/icon-email.svg" alt="E-mail">
+          <a class="footer__top-link" href="mailto:email@shelter.com">email@shelter.com</a>
+        </div>
+        <div class="footer__top-wrapper">
+          <img class="footer__top-icon" src="../../assets/icons/icon-phone.svg" alt="Phone number">
+          <a class="footer__top-link" href="tel:+136745677554">+13 674 567 75 54</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <h2 class="footer__bottom-title">We are waiting for your visit</h2>
+        <div class="footer__bottom-wrapper">
+          <img class="footer__bottom-icon" src="../../assets/icons/icon-marker.svg" alt="Location marker">
+          <a class="footer__bottom-link" href="https://maps.app.goo.gl/SyKajx7W2H8h12sm7" target="_blank"
+            rel="noopener">1 Central Street, Boston (entrance from
+            the store)</a>
+        </div>
+        <div class="footer__bottom-wrapper">
+          <img class="footer__bottom-icon" src="../../assets/icons/icon-marker.svg" alt="Location marker">
+          <a class="footer__bottom-link" href="https://maps.app.goo.gl/yo5nU71KnDTevSbt5" target="_blank"
+            rel="noopener">18 South Park, London</a>
+        </div>
+      </div>
+      <img class="footer__image" src="../../assets/images/footer-image.png" alt="">
+    </div>
+  </footer>
+  <div class="popup" id="popup" popover>
+    <div class="popup__backdrop" popovertarget="popup" popovertargetaction="hide">
+      <div class="popup__card">
+        <button class="popup__btn-close" popovertarget="popup" popovertargetaction="hide"></button>
+        <div class="popup__container">
+          <img class="popup__image" src="" alt="">
+          <div class="popup__wrapper">
+            <h2 class="popup__title"></h2>
+            <p class="popup__info"></p>
+            <p class="popup__description"></p>
+            <ul class="popup__params">
+              <li class="popup__item">
+                <p class="popup__item-title">Age:</p>
+                <p class="popup__item-text"></p>
+              </li>
+              <li class="popup__item">
+                <p class="popup__item-title">Innoculations:</p>
+                <p class="popup__item-text"></p>
+              </li>
+              <li class="popup__item">
+                <p class="popup__item-title">Diseases:</p>
+                <p class="popup__item-text"></p>
+              </li>
+              <li class="popup__item">
+                <p class="popup__item-title">Parasites:</p>
+                <p class="popup__item-text"> </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
